@@ -8,6 +8,9 @@ export default class Circle {
 		this.speed = speed;
 		this.theta = theta;
 
+		this.penX = x + radius;
+		this.penY = y;
+
 	};
 
 	step() {
@@ -19,6 +22,8 @@ export default class Circle {
 		if (this.theta >= (2 * Math.PI)) {
 			this.theta -= 2 * Math.PI;
 		};
+		this.penX = Math.cos(this.theta) * this.radius + this.x;
+		this.penY = Math.sin(this.theta) * this.radius + this.y;
 	};
 
 	draw(ctx) {
@@ -30,8 +35,8 @@ export default class Circle {
 		// Draw the "pen" of the circle
 		ctx.beginPath();
 		ctx.arc(
-			Math.cos(this.theta) * this.radius + this.x,
-			Math.sin(this.theta) * this.radius + this.y,
+			this.penX,
+			this.penY,
 			this.penRadius,
 			0,
 			2 * Math.PI

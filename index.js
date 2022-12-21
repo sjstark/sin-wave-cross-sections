@@ -1,21 +1,40 @@
 // Imports
 import Circle from "./components/Circle.js"
+import Line from "./components/Line.js"
 
 // Query for our main canvas
 let canvas = document.querySelector("#sin-wave-canvas");
 let ctx = canvas.getContext("2d");
-let circle;
 
 const canvasConfig = {
 	width: "900px",
 	height: "900px",
 };
+const circleWidth = 50;
+const circleBaseSpeed = 0.02;
+const gap = 25;
 
 const canvasObjects = [];
 
 const init = () => {
-	canvasObjects.push(new Circle({x: 50, y: 50}));
-	canvasObjects.push(new Circle({x: 100,y: 50, speed: 0.04}));
+	for (let i = 2; i <= 6; i++) {
+		canvasObjects.push(new Circle({
+			x: ( i * circleWidth + (i - 1) * gap),
+			y: circleWidth,
+			speed: circleBaseSpeed * i
+		}));
+
+		canvasObjects.push(new Line({
+			direction: "v",
+			baseCircle: canvasObjects[canvasObjects.length-1]
+		}))
+
+		// canvasObjects.push(new Circle({
+		// 	x: circleWidth,
+		// 	y: ( i * circleWidth + (i - 1) * gap),
+		// 	speed: circleBaseSpeed * i
+		// }));
+	}
 	window.requestAnimationFrame(step);
 };
 
