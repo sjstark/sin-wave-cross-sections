@@ -1,0 +1,19 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background: slategray;
+}
+
+h1 {
+	display: block;
+	text-align: center;
+	color: whitesmoke;
+}
+
+canvas {
+	background: whitesmoke;
+	border-radius: 5px;
+}
