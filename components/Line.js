@@ -1,4 +1,6 @@
 export default class Line {
+
+	// Constructor built to take an object to allow for loose declaration
 	constructor({
 		direction,
 		baseCircle,
@@ -10,19 +12,26 @@ export default class Line {
 		this.baseCircle = baseCircle;
 
 		this.strokeColor = strokeColor;
+		this.x;
+		this.y;
 	};
 
-	// Empty step function; animation should be based off other objects
+	// Update the x and y based off of the base circle
 	step() {
-		return true;
+		if (this.direction === "h") {
+			this.y = this.baseCircle.penY
+		} else {
+			this.x = this.baseCircle.penX
+		}
 	};
 
+	// Draw a vertical or horizontal line dependent on config; leave a lil padding
 	draw(ctx) {
 		let line;
 		if (this.direction === "h") {
 			line = {
-				startX: 0,
-				endX: ctx.canvas.width,
+				startX: 10,
+				endX: ctx.canvas.width - 10,
 				startY: this.baseCircle.penY,
 				endY: this.baseCircle.penY
 			}
@@ -30,8 +39,8 @@ export default class Line {
 			line = {
 				startX: this.baseCircle.penX,
 				endX: this.baseCircle.penX,
-				startY: 0,
-				endY: ctx.canvas.width
+				startY: 10,
+				endY: ctx.canvas.width - 10
 			}
 		}
 

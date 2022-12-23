@@ -1,5 +1,16 @@
 export default class Circle {
-	constructor({x, y, strokeColor="black", radius=25, penRadius=2, speed=0.02, theta=0}={}) {
+
+	// Constructor built to take an object to allow for loose declaration
+	constructor({
+		x,
+		y,
+		// strokeColor="#"+Math.floor(Math.random()*16777215).toString(16),
+		strokeColor="fuchsia",
+		radius=25,
+		penRadius=2,
+		speed=0.02,
+		theta=0
+	}={}) {
 		this.x = x;
 		this.y = y;
 		this.strokeColor = strokeColor;
@@ -8,6 +19,7 @@ export default class Circle {
 		this.speed = speed;
 		this.theta = theta;
 
+		// Pen will always start on the right (radians 0)
 		this.penX = x + radius;
 		this.penY = y;
 
@@ -21,6 +33,8 @@ export default class Circle {
 		this.theta += this.speed;
 		if (this.theta >= (2 * Math.PI)) {
 			this.theta -= 2 * Math.PI;
+		} else if (this.theta <= -(2 * Math.PI)) {
+			this.theta += 2 * Math.PI;
 		};
 		this.penX = Math.cos(this.theta) * this.radius + this.x;
 		this.penY = Math.sin(this.theta) * this.radius + this.y;
@@ -41,7 +55,7 @@ export default class Circle {
 			0,
 			2 * Math.PI
 			)
-		ctx.fillStyle = "white"
+		ctx.fillStyle = this.strokeColor
 		ctx.fill();
 		ctx.stroke();
 	};
