@@ -27,7 +27,7 @@ let verticalLines = [];
 // Initialize our canvas objects and start animation frames.
 const init = () => {
 	// Make some circle objects with pens
-	for (let i = 2; i <= 11; i++) {
+	for (let i = 2; i <= 13; i++) {
 		canvasObjects.push(new Circle({
 			x: ( i * circleWidth + (i - 1) * gap),
 			y: circleWidth,

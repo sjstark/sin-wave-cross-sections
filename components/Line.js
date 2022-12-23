@@ -36,6 +36,7 @@ export default class Line {
 				endY: this.baseCircle.penY
 			}
 		} else {
+			ctx.strokeColor = this.strokeColor;
 			line = {
 				startX: this.baseCircle.penX,
 				endX: this.baseCircle.penX,
@@ -45,7 +46,6 @@ export default class Line {
 		}
 
 		ctx.beginPath();
-		ctx.strokeColor = this.strokeColor;
 		ctx.moveTo(line.startX, line.startY);
 		ctx.lineTo(line.endX, line.endY);
 		ctx.stroke();
