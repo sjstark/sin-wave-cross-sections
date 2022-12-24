@@ -16,7 +16,7 @@ const canvasConfig = {
 // Some base variables to help with layout
 const circleWidth = 50;
 const circleBaseSpeed = 0.005;
-const gap = 25;
+const gap = 30;
 
 // The array of objects to step and draw
 const canvasObjects = [];
@@ -27,7 +27,7 @@ let verticalLines = [];
 // Initialize our canvas objects and start animation frames.
 const init = () => {
 	// Make some circle objects with pens
-	for (let i = 2; i <= 13; i++) {
+	for (let i = 2; i <= 11; i++) {
 		canvasObjects.push(new Circle({
 			x: ( i * circleWidth + (i - 1) * gap),
 			y: circleWidth,

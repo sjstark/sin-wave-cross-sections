@@ -55,7 +55,8 @@ export default class Circle {
 			0,
 			2 * Math.PI
 			)
-		ctx.fillStyle = this.strokeColor
+		ctx.fillStyle = "white"
+		ctx.strokeStyle = "white"
 		ctx.fill();
 		ctx.stroke();
 	};

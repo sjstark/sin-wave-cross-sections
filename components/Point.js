@@ -7,8 +7,8 @@ export default class Point {
 		baseX,
 		baseY,
 		particleTrailWidth,
-		strokeColor="lime",
-		maxPoints=1000 // The number of points to keep logged for trailing effect
+		strokeColor="green",
+		maxPoints=600 // The number of points to keep logged for trailing effect
 	}) {
 		this.baseX = baseX;
 		this.baseY = baseY;
@@ -37,8 +37,9 @@ export default class Point {
 		ctx.beginPath();
 		ctx.lineWidth = this.particleTrailWidth;
 		ctx.strokeStyle = this.strokeColor;
-		// ctx.arc(this.x, this.y, 5, 0, 2 * Math.PI)
-		// ctx.fill();
+		ctx.fillStyle = this.strokeColor;
+		ctx.arc(this.x, this.y, 1.5, 0, 2 * Math.PI)
+		ctx.fill();
 		ctx.moveTo(this.x, this.y);
 
 		let prevPoint = this.prevPoints[0];
