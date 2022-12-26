@@ -1,7 +1,7 @@
 // Imports
-import Circle from "./components/Circle.js"
-import Line from "./components/Line.js"
-import Point from "./components/Point.js"
+import Circle from "../components/Circle.js"
+import Line from "../components/Line.js"
+import Point from "../components/Point.js"
 
 // Query for our main canvas
 let canvas = document.querySelector("#sin-wave-canvas");
